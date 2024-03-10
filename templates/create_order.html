@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+        background-color: rgb(120, 119, 119);
+    }
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+        background:url(https://images.unsplash.com/photo-1603346133929-24265debae88?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z3JleSUyMGdyYWRpZW50fGVufDB8fDB8fHww);
+        background-position: center center;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        margin-top: 30vh;
+    }
+    form label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: 800;
+        color: whitesmoke;
+    }
+    form select,
+    form input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    form input[type="submit"] {
+        background-color: grey;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: large;
+        font-weight: 800;
+    }
+    form input[type="submit"]:hover {
+        background-color: rgb(85, 82, 82);
+    }
+</style>
+<body>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" name="SUBMIT">
+    </form>
+</body>
+</html>

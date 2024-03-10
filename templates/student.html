@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: rgb(48, 61, 59);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #f4f4f4;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 0 5px;
+        }
+        nav a:hover {
+            background-color: #ddd;
+        }
+        section {
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        .card {
+            background-color: #f4f4f4;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h2 {
+            margin-top: 0;
+        }
+        footer {
+            background-color: rgb(48, 61, 59);
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Student Dashboard</h1>
+    </header>
+    <nav>
+        <a href="{%url 'home'%}">Home</a>
+        
+    </nav>
+    <section>
+        <div class="container">
+            <div class="card">
+                <h2>Welcome</h2>
+                <a href="{% url 'create_order' %}">Enroll to course</a>
+            </div>
+            <div class="card">
+                <h2>Filter courses</h2>
+                <a href="{% url 'filter' %}">See the courses that are available</a>
+            </div>
+            <div class="card">
+                <h2>Register</h2>
+                <a href="{% url 'create_customer' %}">Register yourself to start orders</a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        &copy; 2024 Student Dashboard
+    </footer>
+</body>
+</html>

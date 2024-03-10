@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loginRegister</title>
+</head>
+<style>
+    
+    .login{
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    }
+    body {
+            font-family: Arial, sans-serif;
+            background-color: #eded9c;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            
+    }
+    .register{
+        
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    }
+    
+    
+</style>
+<body>
+    {%if page == 'login' %}
+    <div class="login">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li></li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <form method="POST" action="" id="login_form">
+            {% csrf_token %}
+            <label>Username:</label>
+
+            <input type="text" name="username" placeholder="Enter username" pattern=".*@(student|teacher)$" title="Username must end with @student or @teacher" required>
+
+
+            
+            <label>Password:</label>
+
+            <input type="password" name="password" placeholder="enter password"/>
+            
+            <input type="submit" value="Login" />
+
+        </form>
+    </div>
+
+    <p>havent signed up yet?</p>
+    <a href="{%url 'register'%}">Sign up</a>
+
+    {% else %}
+    
+    <div class="register">
+        <form method="POST" action="" >
+            {% csrf_token %}
+            {{form.as_p}}
+            
+            <input type="submit" value="Join" />
+
+        </form>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        
+    </div>
+    
+    <p>havent signed up yet?</p>
+    <a href="{%url 'login'%}">Login</a>
+
+    {%endif%}
+</body>
+</html>

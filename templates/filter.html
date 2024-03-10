@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Search Form</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+    }
+
+    h2 {
+        text-align: center;
+        margin-top: 30px;
+        color: #333;
+    }
+    a{
+        
+        text-align: center;
+        margin-top: 30px;
+        color: #333;
+    
+    }
+
+    form {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        color: #666;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 16px;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    ul{
+        list-style-type: none;
+    }
+</style>
+<body>
+    <h2>Search courses</h2>
+    <a href="{%url 'home'%}">return home</a>
+    
+    
+    <form action="." method="GET">
+        <label for="course_name">Course Name:</label><br>
+        <input type="text" id="course_name" name="name" placeholder="course name contains..."><br><br>
+
+        <label for="host">Course Name:</label><br>
+        <input type="text" id="host" name="host" placeholder="author name....."><br><br>
+
+        <label for="min_price">Minimum Price:</label><br>
+        <input type="number" id="min_price" name="min_price" placeholder="min price"><br><br>
+
+        <label for="max_price">Maximum Price:</label><br>
+        <input type="number" id="max_price" name="max_price" placeholder="max price"><br><br>
+
+        <label for="min_experience">Minimum Experience:</label><br>
+        <input type="number" id="min_experience" name="min_experience" placeholder="min experience"><br><br>
+
+        <label for="nationality">Language:</label><br>
+        <select id="nationality" name="language">
+            <option value="foreign">Foreign</option>
+            <option value="indian">Indian</option>
+        </select><br><br>
+
+        <input type="submit" value="Search">
+    </form>
+
+    <hr/>
+    <div class="row">
+        <ul>
+            {%for i in queryset%}
+
+            <li>
+                <span>Course_name: {{i.name}}</span>
+                <span>price: {{i.price}}</span>
+                <span>host: {{i.host}}</span>
+                <span>experience: {{i.experience}}</span>
+            </li>
+
+            {%endfor%}
+        </ul>
+    </div>
+</body>
+</html>

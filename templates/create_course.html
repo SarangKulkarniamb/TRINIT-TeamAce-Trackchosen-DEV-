@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        
+        padding: 20px;
+    }
+    form {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: rgba(43, 41, 41, 0.8);
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+    }
+    label{
+        color: whitesmoke;
+        font-size: larger;
+        font-weight:bolder;
+    }
+    
+    form input[type="text"],
+    form select,
+    form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        
+        
+    }
+    form input[type="number"] {
+        width: calc(100% - 22px); /* Adjusting for padding and border */
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        
+        
+    }
+    form input[type="submit"] {
+        background-color: grey;
+        color: white;
+        padding: 15px 25px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    form input[type="submit"]:hover {
+        background-color: black;
+    }
+    label {
+        font-weight: bold;
+    }
+</style>
+<body>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" name="SUBMIT">
+    </form>
+</body>
+</html>
