@@ -9,5 +9,4 @@ instructions:
  create your own virtual env with django installed.... run commands:
           "<env name>/scripts/activate"
           "project manage.py runserver"
-to access admin page of django:  username=Vivek
-                                 password=untu2005
+to access admin page of django:  
